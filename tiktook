@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SandDev</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000a2a;
+            color: #fff;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #000e38;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .brand-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+            margin-left: auto;
+        }
+
+            .nav-links li {
+                display: inline;
+            }
+
+            .nav-links a {
+                text-decoration: none;
+                color: #fff;
+                font-size: 18px;
+            }
+
+        .content-container {
+            width: 90%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #000e38;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+            .content-container h2 {
+                margin-top: 0;
+                text-align: center;
+            }
+
+            .content-container a {
+                color: #00aced;
+                text-decoration: none;
+            }
+
+                .content-container a:hover {
+                    text-decoration: underline;
+                }
+
+        .status {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+
+            .status span {
+                width: 15px;
+                height: 15px;
+                display: inline-block;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+
+        .online span {
+            background-color: #00ff00;
+        }
+
+        .maintenance span {
+            background-color: #ffcc00;
+        }
+
+        .form-container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background-color: #000e38;
+            border-radius: 8px;
+            border: 2px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px auto;
+        }
+
+            .form-container h2 {
+                text-align: center;
+                color: #fff;
+            }
+
+            .form-container input {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: none;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+
+            .form-container button {
+                width: 100%;
+                padding: 10px;
+                background-color: #00aced;
+                border: none;
+                color: #fff;
+                font-size: 16px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+                .form-container button:hover {
+                    background-color: #0084b4;
+                }
+
+        .toggle-password {
+            position: relative;
+        }
+
+            .toggle-password input[type="password"] {
+                padding-right: 40px;
+            }
+
+            .toggle-password .toggle-icon {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+            .login-link a {
+                color: #00aced;
+                text-decoration: none;
+            }
+
+                .login-link a:hover {
+                    text-decoration: underline;
+                }
+
+        .hidden {
+            display: none;
+        }
+
+        .profile-btn {
+            cursor: pointer;
+            color: #00aced;
+            font-size: 24px;
+        }
+
+            .profile-btn:hover {
+                text-decoration: underline;
+            }
+
+        .admin-form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #002244;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .status-text {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+        /* Styling for Admin Page */
+        #adminPage {
+            background-color: #000e38;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+            #adminPage h2 {
+                color: #333;
+            }
+
+            #adminPage label {
+                font-size: 16px;
+                margin: 10px 0;
+                display: block;
+            }
+
+            #adminPage input[type="text"],
+            #adminPage select {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+            }
+
+            #adminPage button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+                #adminPage button:hover {
+                    background-color: #45a049;
+                }
+
+        /* Styling for Home Page */
+
+        #homePageStatus {
+            font-size: 18px;
+        }
+
+        /* Style for links */
+        #gameInfoLinks a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+            #gameInfoLinks a:hover {
+                text-decoration: underline;
+            }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Space between contact items */
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background-color: #001f3f; /* Background color for contact items */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .contact-logo {
+            width: 40px; /* Adjust logo size */
+            height: 40px; /* Adjust logo size */
+            margin-right: 10px; /* Space between logo and text */
+        }
+
+        .contact-details {
+            color: #fff; /* Text color */
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #fff;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        .quick-links {
+            margin: 10px 0;
+        }
+
+            .quick-links a {
+                color: #00aced;
+                margin: 0 10px;
+                text-decoration: none;
+            }
+
+                .quick-links a:hover {
+                    text-decoration: underline;
+                }
+
+        .footer-text {
+            font-size: 14px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-section">
+            <img src="logo.jpg" alt="SandDev Logo" class="logo">
+            <span class="brand-name">SandDev</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#" onclick="showHome()">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#" onclick="showContact()">Contact</a></li>
+            <li><a href="#" id="signupLoginBtn" onclick="showSignup()">Sign Up/Login</a></li>
+            <li><a href="#" id="adminLink" class="hidden" onclick="showAdminPage()">Admin</a></li>
+        </ul>
+        <span id="profileBtn" class="hidden profile-btn" onclick="logoutConfirm()">👤</span>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="homePage" class="content-container">
+        <h2>Game Information</h2>
+        <p><strong>Game Link:</strong> <a id="gameLinkAnchor" href="#" target="_blank">Click Here</a></p>
+        <p><strong>Discord Link:</strong> <a id="discordLinkAnchor" href="#" target="_blank">Click Here</a></p>
+        <p><strong>Whatsapp Channel:</strong> <a id="whatsappLinkAnchor" href="#" target="_blank">Click Here</a></p>
+        <p><strong>Last Updated: 11/12/24</strong></p>
+    </div>
+
+    <div id="homePageStatus" class="content-container">
+        <h2>Game Status</h2>
+        <div class="status online">
+            <span></span>Game is online
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contactPage" class="content-container hidden">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <img src="telegram-logo.png" alt="Telegram Logo" class="contact-logo">
+                <div class="contact-details">
+                    <strong>Telegram</strong><br>
+                    Coming Soon
+                </div>
+            </div>
+            <div class="contact-item">
+                <img src="instagram-logo.png" alt="Instagram Logo" class="contact-logo">
+                <div class="contact-details">
+                    <strong>Instagram</strong><br>
+                    @iddrstudios
+                </div>
+            </div>
+            <div class="contact-item">
+                <img src="email-logo.png" alt="Email Logo" class="contact-logo">
+                <div class="contact-details">
+                    <strong>Email</strong><br>
+                    iddrstudio@gmail.com
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div id="signupForm" class="form-container hidden">
+        <h2>Sign Up</h2>
+        <input type="text" id="signupUsername" placeholder="Username" required>
+        <div class="toggle-password">
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <span class="toggle-icon" onclick="togglePassword('signup')">👁️</span>
+        </div>
+        <button onclick="signUp()">Sign Up</button>
+        <div class="login-link">
+            Already have an account? <a href="#" onclick="showLoginForm()">Login now</a>
+        </div>
+    </div>
+
+    <!-- Login Form -->
+    <div id="loginForm" class="form-container hidden">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username" required>
+        <div class="toggle-password">
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <span class="toggle-icon" onclick="togglePassword('login')">👁️</span>
+        </div>
+        <button onclick="login()">Login</button>
+        <div class="login-link">
+            Don't have an account? <a href="#" onclick="showSignup()">Sign Up now</a>
+        </div>
+    </div>
+
+    <!-- Admin Page -->
+    <div id="adminPage" class="hidden">
+        <h2>Admin Settings</h2>
+
+        <!-- Game Status Settings -->
+        <div>
+            <h3>Game Status Settings</h3>
+            <label for="gameStatus">Game Status:</label>
+            <select id="gameStatus">
+                <option value="online">Online</option>
+                <option value="maintenance">Under Maintenance</option>
+            </select>
+        </div>
+
+        <!-- Game Information -->
+        <div>
+            <h3>Game Information</h3>
+            <label for="gameLink">Game link:</label>
+            <input type="text" id="gameLink" placeholder="Enter Game Link" />
+            <br>
+            <label for="discordLink">Discord link:</label>
+            <input type="text" id="discordLink" placeholder="Enter Discord Link" />
+            <br>
+            <label for="whatsappLink">Whatsapp channel:</label>
+            <input type="text" id="whatsappLink" placeholder="Enter Whatsapp Channel Link" />
+        </div>
+
+        <button onclick="saveAdminSettings()">Save Settings</button>
+    </div>
+
+    <footer>
+        <div class="footer-text">
+            <h2>About Us</h2>
+            <p>Indonesia Driving Roads is a Roblox driving game, where you can drive around the city and can drive various vehicles.</p>
+        </div>
+        <div class="quick-links">
+            Quick Links:
+            <a href="#" onclick="showHome()">Home</a> |
+            <a href="#">About</a> |
+            <a href="#" onclick="showContact()">Contact</a> |
+            <a href="#">Privacy Policy</a>
+        </div>
+        <div class="footer-text">
+            © 2024 Indonesia Driving Roads. All rights reserved.
+        </div>
+        <div class="footer-text">
+            Your support means a lot to us!
+        </div>
+    </footer>
+
+    <script>
+        // Toggle password visibility
+        function togglePassword(formType) {
+            const passwordField = document.getElementById(formType + 'Password');
+            const icon = document.querySelector('#' + formType + ' .toggle-icon');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.textContent = '🙈';
+            } else {
+                passwordField.type = 'password';
+                icon.textContent = '👁️';
+            }
+        }
+
+        // Show "Admin" link only if username is "admin"
+        function checkAdminNavbar() {
+            const username = localStorage.getItem('username');
+            const adminLink = document.getElementById('adminLink');
+
+            if (username === 'admin') {
+                adminLink.classList.remove('hidden');
+            } else {
+                adminLink.classList.add('hidden');
+            }
+        }
+
+        // Show Signup form
+        function showSignup() {
+            document.getElementById('homePage').classList.add('hidden');
+            document.getElementById('signupForm').classList.remove('hidden');
+            document.getElementById('loginForm').classList.add('hidden');
+        }
+
+        // Show Login form
+        function showLoginForm() {
+            document.getElementById('homePage').classList.add('hidden');
+            document.getElementById('signupForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.remove('hidden');
+        }
+
+        // Show Contact Page
+        function showContact() {
+            document.getElementById('homePage').classList.add('hidden');
+            document.getElementById('signupForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('homePageStatus').classList.add('hidden');
+            document.getElementById('adminPage').classList.add('hidden'); // Hide the admin page
+            document.getElementById('contactPage').classList.remove('hidden'); // Show the contact page
+        }
+
+        // Show Home Page
+        function showHome() {
+            document.getElementById('homePage').classList.remove('hidden');
+            document.getElementById('signupForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('homePageStatus').classList.remove('hidden');
+            document.getElementById('adminPage').classList.add('hidden'); // Hide the admin page
+            document.getElementById('contactPage').classList.add('hidden'); // Show the contact page
+            checkAdminNavbar(); // Check admin navbar visibility
+            loadGameStatus(); // Load game status and game info on home page
+        }
+        // Show Admin page
+        function showAdminPage() {
+            document.getElementById('adminPage').classList.remove('hidden');
+            document.getElementById('homePage').classList.add('hidden');
+            document.getElementById('homePageStatus').classList.add('hidden');
+            document.getElementById('contactPage').classList.add('hidden'); // Show the contact page
+        }
+
+        // Save Admin Settings
+        function saveAdminSettings() {
+            const gameStatus = document.getElementById('gameStatus').value;
+            const gameLink = document.getElementById('gameLink').value;
+            const discordLink = document.getElementById('discordLink').value;
+            const whatsappLink = document.getElementById('whatsappLink').value;
+
+            localStorage.setItem('gameStatus', gameStatus);
+            localStorage.setItem('gameLink', gameLink);
+            localStorage.setItem('discordLink', discordLink);
+            localStorage.setItem('whatsappLink', whatsappLink);
+
+            alert('Admin settings saved!');
+            loadGameStatus(); // Update the game status and links on home page
+        }
+
+
+
+        // Load Game Status and Info on Home Page
+        // Load Game Status and Info on Home Page
+        function loadGameStatus() {
+            const gameStatus = localStorage.getItem('gameStatus');
+            const gameLink = localStorage.getItem('gameLink');
+            const discordLink = localStorage.getItem('discordLink');
+            const whatsappLink = localStorage.getItem('whatsappLink');
+
+            const gameStatusElement = document.getElementById('homePageStatus');
+            const statusText = document.createElement('span');
+            statusText.classList.add('status-text');
+
+            if (gameStatus === 'online') {
+                statusText.innerHTML = '🟢 Game is Online';
+            } else if (gameStatus === 'maintenance') {
+                statusText.innerHTML = '🟡 Game is Under Maintenance';
+            }
+
+            gameStatusElement.innerHTML = 'Game Status: ';
+            gameStatusElement.appendChild(statusText);
+
+            // Update the game link anchor
+            const gameLinkAnchor = document.getElementById('gameLinkAnchor');
+            gameLinkAnchor.href = gameLink; // Set the href to the stored game link
+            gameLinkAnchor.textContent = gameLink ? 'Click Here' : 'No Game Link Available'; // Update text based on link availability
+
+            // Update the Discord link anchor
+            const discordLinkAnchor = document.getElementById('discordLinkAnchor');
+            discordLinkAnchor.href = discordLink; // Set the href to the stored Discord link
+            discordLinkAnchor.textContent = discordLink ? 'Click Here' : 'No Discord Link Available'; // Update text based on link availability
+
+            // Update the WhatsApp link anchor
+            const whatsappLinkAnchor = document.getElementById('whatsappLinkAnchor');
+            whatsappLinkAnchor.href = whatsappLink; // Set the href to the stored WhatsApp link
+            whatsappLinkAnchor.textContent = whatsappLink ? 'Click Here' : 'No WhatsApp Link Available'; // Update text based on link availability
+
+            // The gameInfoLinksElement is no longer needed since we directly updated the links above
+        }
+
+        // Sign up functionality
+        function signUp() {
+            const username = document.getElementById('signupUsername').value;
+            const password = document.getElementById('signupPassword').value;
+            if (username && password) {
+                localStorage.setItem('username', username);
+                localStorage.setItem('password', password);
+                showHome();
+            } else {
+                alert('Please fill out all fields.');
+            }
+        }
+
+        // Login functionality
+        function login() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+            if (username === storedUsername && password === storedPassword) {
+                localStorage.setItem('loggedIn', 'true');
+                document.getElementById('profileBtn').classList.remove('hidden');
+                document.getElementById('signupLoginBtn').classList.add('hidden');
+                showHome();
+            } else {
+                alert('Invalid credentials.');
+            }
+        }
+
+        // Logout confirmation
+        function logoutConfirm() {
+            const logout = confirm('Are you sure you want to log out?');
+            if (logout) {
+                localStorage.removeItem('loggedIn');
+                localStorage.removeItem('username');
+                localStorage.removeItem('password');
+                document.getElementById('profileBtn').classList.add('hidden');
+                document.getElementById('signupLoginBtn').classList.remove('hidden');
+                showHome();
+            }
+        }
+
+        // Check login status and admin visibility on page load
+        window.onload = () => {
+            if (localStorage.getItem('loggedIn') === 'true') {
+                document.getElementById('profileBtn').classList.remove('hidden');
+                document.getElementById('signupLoginBtn').classList.add('hidden');
+                document.getElementById('contactPage').classList.add('hidden'); // Hide the contact page on initial load
+            }
+            checkAdminNavbar(); // Check if the admin navbar is visible
+            loadGameStatus(); // Load game status and links on home page
+        };
+    </script>
+</body>
+</html>
